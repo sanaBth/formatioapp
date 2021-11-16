@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './login/signup.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
         ProfileComponent,
         RegisterComponent,
         HeaderComponent,
+        ForgotPasswordComponent,
         
     ]
 })
