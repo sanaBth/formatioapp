@@ -16,9 +16,14 @@ export class LearningDbService {
     return this.httpClient.post<any>(`${this.api_url}/apiuser/login`, user);
     
   }
+  //register
   register(user: User){
     return this.httpClient.post(`${this.api_url}/apiuser/register`, user);
   }
+//send mail forgot password
+  forgotPassword(email: string) {
+    return this.httpClient.post(`${this.api_url}/apiuser/forgot`,  email );
+}
 
 
 

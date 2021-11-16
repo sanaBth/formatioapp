@@ -10,6 +10,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,7 +21,7 @@ const routes: Routes =[
     { path: 'home',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
-
+{ path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
 ];
 
 @NgModule({
