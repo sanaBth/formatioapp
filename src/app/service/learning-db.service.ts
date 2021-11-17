@@ -25,6 +25,10 @@ export class LearningDbService {
     return this.httpClient.post(`${this.api_url}/apiuser/forgot`,  email );
 }
 
-
+//reset password
+resetpassword(id:string,token:string,password:string)
+{
+  return this.httpClient.post(`${this.api_url}/apiuser/${id}/${token}`,  {password} );
+}
 
 }

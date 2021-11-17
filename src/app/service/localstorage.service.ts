@@ -23,7 +23,22 @@ export class LocalstorageService {
   public logout()
   {
      localStorage.removeItem('userconnected')
-
+     
   }
-
+  gettoken()
+  {
+    return JSON.parse(localStorage.getItem('token') || 'null')
+  }
+  getuserid()
+  {
+    return JSON.parse(localStorage.getItem('iserid') || 'null')
+  }
+  settoken(token:any)
+  {
+    localStorage.setItem('token', JSON.stringify(token.token)); 
+  }
+  setuserId(token:any)
+  {
+    localStorage.setItem('userId', JSON.stringify(token.userId)); 
+  }
 }
