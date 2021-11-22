@@ -10,7 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  userForm:FormGroup;
+  userForm:FormGroup  
+  controls:any
     test : Date = new Date();
   
     constructor(private _authService:  LearningDbService,
@@ -20,14 +21,16 @@ export class SignupComponent implements OnInit {
 
     ngOnInit() {  
       this.userForm = new FormGroup
-        ({
-          email: new FormControl('',Validators.required),
-          password: new FormControl('',Validators.required),
-        })
+      ({
+        email: new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+        password: new FormControl('',[Validators.required]),
+      });
+      //console.log(this.userForm.controls);
+      this.controls = this.userForm.controls
       }
     public login()
   {
-   
+   console.log(this.userForm.value);
       this._authService.login(this.userForm.value).subscribe(
         (res)=>{
           console.log(res);

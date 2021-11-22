@@ -11,6 +11,7 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { RegisterComponent } from './pages/register/register.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
+import { FormationComponent } from './pages/formation/formation.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes =[
     { path: 'login',           component: SignupComponent },
     { path: 'register',           component: RegisterComponent },
     { path: 'home',          component: LandingComponent },
+    { path: 'formation',          component: FormationComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
 { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },

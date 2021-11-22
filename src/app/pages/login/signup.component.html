@@ -26,7 +26,11 @@
                 <i class="fa fa-twitter"></i>
               </a>
             </div>
-            <form class="register-form" [formGroup]="userForm">
+            <form
+              class="register-form"
+              [formGroup]="userForm"
+              (ngSubmit)="login()"
+            >
               <label>Email</label>
               <div class="input-group form-group-no-border">
                 <div class="input-group-prepend">
@@ -42,7 +46,22 @@
                   formControlName="email"
                 />
               </div>
-
+              <div
+                class="text-light"
+                *ngIf="
+                  controls.email.hasError('required') && controls.email.touched
+                "
+              >
+                Ce champs est obligatoire
+              </div>
+              <div
+                class="text-light"
+                *ngIf="
+                  controls.email.hasError('pattern') && controls.email.touched
+                "
+              >
+                Ce format n'est pas valide
+              </div>
               <label>Mot de passe</label>
               <div class="input-group form-group-no-border">
                 <div class="input-group-prepend">
@@ -57,10 +76,20 @@
                   formControlName="password"
                 />
               </div>
+              <div
+                class="text-light"
+                *ngIf="
+                  controls.password.hasError('required') &&
+                  controls.password.touched
+                "
+              >
+                Ce champs est obligatoire
+              </div>
+
               <button
-                (click)="login()"
                 type="submit"
                 class="btn btn-danger btn-block btn-round"
+                [disabled]="!userForm.valid"
               >
                 Connexion
               </button>

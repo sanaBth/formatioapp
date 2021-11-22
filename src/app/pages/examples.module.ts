@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { FormationComponent } from './formation/formation.component';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
         HeaderComponent,
         ForgotPasswordComponent,
         ResetpasswordComponent,
+        FormationComponent,
         
     ]
 })

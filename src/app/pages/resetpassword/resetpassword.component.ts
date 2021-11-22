@@ -23,6 +23,7 @@ export class ResetpasswordComponent implements OnInit {
   id : string;
   token : string;
   resetform: FormGroup;
+  controls:any 
   constructor(private route: ActivatedRoute,private _authService:  LearningDbService,  private _localstorage :LocalstorageService) { }
 
 
@@ -31,27 +32,30 @@ export class ResetpasswordComponent implements OnInit {
    this.id = this.route.snapshot.params.id;
     const tokenStored =this._localstorage.gettoken();
     console.log({token:this.token,tokenStored});
+     
     if (this.token == tokenStored)
     {
       this.valid=true;
     }
-    else{
+    else
+    {
       this.valid=false;
     }
     console.log(tokenStored);
 
     this.resetform = new FormGroup
     ({
-      password: new FormControl('',Validators.required),
+      password: new FormControl('',[Validators.required,Validators.minLength(6)]),
       confirmPassword:new FormControl ('', Validators.required),
-    })/* , {
-      validator: this.MustMatch('password', 'confirmPassword')
-  } */
+    }), {
+      validator: this.checkIfMatchingPasswords('password', 'confirmPassword')
+  }
+  this.controls = this.resetform.controls
   }
 
 
   // custom validator to check that two fields match
-   MustMatch(controlName: string, matchingControlName: string) {
+  checkIfMatchingPasswords(controlName: string, matchingControlName: string) {
       return (formGroup: FormGroup) => {
           const control = formGroup.controls[controlName];
           const matchingControl = formGroup.controls[matchingControlName];

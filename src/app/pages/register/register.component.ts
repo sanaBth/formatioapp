@@ -12,16 +12,18 @@ import { LocalstorageService } from 'app/service/localstorage.service';
 export class RegisterComponent implements OnInit {
   userForm:FormGroup;
   test : Date = new Date();
+  controls:any  
   constructor(private _authService:  LearningDbService,
     private router: Router) { }
 
 ngOnInit() {  
   this.userForm = new FormGroup
     ({
-      email: new FormControl('',Validators.required),
+      email: new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       password: new FormControl('',Validators.required),
       username: new FormControl('',Validators.required),
     })
+    this.controls = this.userForm.controls
   }
   public saveUser()
   { 
