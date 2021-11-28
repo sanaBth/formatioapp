@@ -1,0 +1,126 @@
+<app-header-not-transparent></app-header-not-transparent>
+<div class="container">
+  <form [formGroup]="postForm">
+    <div class="row mb-5 mt-3">
+      <div class="col-md-12">
+        <h1>{{ actionPage }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="form-floating mt-3">
+          <input
+            type="text"
+            placeholder="Nom..."
+            id="myInput"
+            formControlName="nom"
+            aria-label="Texte de la tâche"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.nom &&
+              postForm.controls.nom.invalid &&
+              postForm.controls.nom.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <label class="btn btn-default">
+          <input type="file" (change)="selectFiles($event)" />
+        </label>
+        <div class="form-floating mt-3">
+          <input
+            type="text"
+            placeholder="durée..."
+            id="myInput"
+            formControlName="dure"
+            aria-label="Texte de la tâche"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.dure &&
+              postForm.controls.dure.invalid &&
+              postForm.controls.dure.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="form-floating mt-3">
+          <input
+            type="text"
+            placeholder="Nom formateur..."
+            id="myInput"
+            formControlName="nomformateur"
+            aria-label="Texte de la tâche"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.nomformateur &&
+              postForm.controls.nomformateur.invalid &&
+              postForm.controls.nomformateur.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+
+        <div class="form-floating mt-3">
+          <textarea
+            class="form-control"
+            placeholder="Décrivez..."
+            id="myTextarea"
+            formControlName="description"
+            rows="3"
+          ></textarea>
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.description &&
+              postForm.controls.description.invalid &&
+              postForm.controls.description.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="form-floating mt-3">
+          <input
+            type="text"
+            placeholder="Prix..."
+            id="myInput"
+            formControlName="prix"
+            aria-label="Texte de la tâche"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.prix &&
+              postForm.controls.prix.invalid &&
+              postForm.controls.prix.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <label class="btn btn-default">
+          <input type="file" multiple (change)="selectFiles($event)" />
+        </label>
+        <p class="text-center">
+          <button
+            type="submit"
+            class="text-center btn btn-primary"
+            [disabled]="!postForm.valid"
+            (click)="newElement()"
+          >
+            {{ actionPage }}
+          </button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

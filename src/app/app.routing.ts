@@ -12,9 +12,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { FormationComponent } from './pages/formation/formation.component';
+import { AddformationComponent } from './pages/addformation/addformation.component';
 
 const routes: Routes =[
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'landing',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'login',           component: SignupComponent },
@@ -24,6 +25,8 @@ const routes: Routes =[
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
 { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
+{ path: 'formation', component: FormationComponent },
+{ path: 'addformation',             component: AddformationComponent },
 ];
 
 @NgModule({

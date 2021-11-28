@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { LearningDbService } from 'app/service/learning-db.service';
 import { LocalstorageService } from 'app/service/localstorage.service';
+import { ConfirmedValidator } from '../passwordmuch';
 enum TokenStatus {
   Validating,
   Valid,
@@ -47,13 +48,16 @@ export class ResetpasswordComponent implements OnInit {
     ({
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
       confirmPassword:new FormControl ('', Validators.required),
-    }), {
-      validator: this.checkIfMatchingPasswords('password', 'confirmPassword')
-  }
+    } , this.passwordConfirming)
   this.controls = this.resetform.controls
+  
   }
 
-
+  passwordConfirming(c: AbstractControl): any{
+    if (c.get('password')?.value !== c.get('confirmpassword')?.value) {
+        return {invalid: true};
+    }
+}
   // custom validator to check that two fields match
   checkIfMatchingPasswords(controlName: string, matchingControlName: string) {
       return (formGroup: FormGroup) => {

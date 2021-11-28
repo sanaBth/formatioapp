@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { FormationComponent } from './formation/formation.component';
+import { HeaderNotTransparentComponent } from './header-not-transparent/header-not-transparent.component';
+import { AddformationComponent } from './addformation/addformation.component';
 
 @NgModule({
     imports: [
@@ -31,6 +33,8 @@ import { FormationComponent } from './formation/formation.component';
         ForgotPasswordComponent,
         ResetpasswordComponent,
         FormationComponent,
+        HeaderNotTransparentComponent,
+        AddformationComponent,
         
     ]
 })

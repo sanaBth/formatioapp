@@ -4,9 +4,7 @@
 >
   <div class="container">
     <div class="navbar-translate">
-      <a class="navbar-brand" href="https://www.creative-tim.com"
-        >Cours en ligne</a
-      >
+      <a class="navbar-brand" routerLink="/home">Cours en ligne</a>
       <button
         class="navbar-toggler navbar-burger"
         type="button"
@@ -28,6 +26,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/formation">Formation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/addformation">Ajouter Formation</a>
         </li>
         <li class="nav-item" *ngIf="userconnected; else boutonConnecter">
           <div ngbDropdown class="d-inline-block dropdown">
