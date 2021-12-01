@@ -15,6 +15,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { FormationComponent } from './formation/formation.component';
 import { HeaderNotTransparentComponent } from './header-not-transparent/header-not-transparent.component';
 import { AddformationComponent } from './addformation/addformation.component';
+import { AddvideoComponent } from './addvideo/addvideo.component';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import { AddformationComponent } from './addformation/addformation.component';
         FormationComponent,
         HeaderNotTransparentComponent,
         AddformationComponent,
+        AddvideoComponent,
         
     ]
 })

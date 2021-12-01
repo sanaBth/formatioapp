@@ -5,19 +5,19 @@
       <form [formGroup]="postForm" enctype="multipart/form-data">
         <div class="row mb-5 mt-3">
           <div class="col-md-12">
-            <h4 class="mb-3">Ajouter formation</h4>
-            <!-- <h1>{{ actionPage }}</h1> -->
+            <h4 class="mb-3">Ajouter vidéo</h4>
+            <!--   <h1>{{ actionPage }}</h1> -->
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="col-auto">
-              <label for="firstName" class="form-label">Nom formation</label>
+              <label for="firstName" class="form-label">Nom Vidéo</label>
               <input
                 type="text"
                 class="form-control"
+                id="firstName"
                 placeholder="Nom..."
-                id="myInput"
                 formControlName="nom"
                 aria-label="Texte de la tâche"
               />
@@ -34,24 +34,25 @@
             </div>
             <div class="col-auto">
               <label for="fileselect" class="form-label"
-                >Selectionner image</label
+                >Selectionner vidéo</label
               >
 
               <input
-                type="file"
                 class="form-control"
+                type="file"
+                id="fileselect"
                 (change)="selectFile($event)"
               />
             </div>
             <div class="col-auto">
-              <label for="myInput" class="form-label">Durée formation</label>
+              <label for="myInput" class="form-label">Durée vidéo</label>
+
               <input
                 type="text"
-                class="form-control"
                 placeholder="durée..."
                 id="myInput"
                 formControlName="dure"
-                aria-label="Texte de la tâche"
+                class="form-control"
               />
               <div
                 class="text-info"
@@ -64,30 +65,9 @@
                 Ce champs est obligatoire
               </div>
             </div>
-            <div class="col-auto">
-              <label for="fileselect" class="form-label">Nom formateur</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Nom formateur..."
-                id="myInput"
-                formControlName="nomformateur"
-                aria-label="Texte de la tâche"
-              />
-              <div
-                class="text-info"
-                *ngIf="
-                  postForm.controls.nomformateur &&
-                  postForm.controls.nomformateur.invalid &&
-                  postForm.controls.nomformateur.touched
-                "
-              >
-                Ce champs est obligatoire
-              </div>
-            </div>
 
             <div class="col-auto">
-              <label for="fileselect" class="form-label">Description</label>
+              <label for="fileselect" class="form-label">Décrivez vidéo</label>
               <textarea
                 class="form-control"
                 placeholder="Décrivez..."
@@ -107,35 +87,25 @@
               </div>
             </div>
             <div class="col-auto">
-              <label for="fileselect" class="form-label">Prix</label>
-              <input
-                type="text"
+              <label for="fileselect" class="form-label">Nom formation</label>
+              <select
                 class="form-control"
-                placeholder="Prix..."
-                id="myInput"
-                formControlName="prix"
-                aria-label="Texte de la tâche"
-              />
-              <div
-                class="text-info"
-                *ngIf="
-                  postForm.controls.prix &&
-                  postForm.controls.prix.invalid &&
-                  postForm.controls.prix.touched
-                "
+                id="idform"
+                (change)="selectId($event)"
               >
-                Ce champs est obligatoire
-              </div>
+                <option *ngFor="let v of formation" value="{{ v._id }}">
+                  {{ v.nom }}
+                </option>
+              </select>
             </div>
-
             <div class="mt-5 text-center">
               <button
                 type="submit"
                 class="btn btn-primary btn-round"
                 [disabled]="!postForm.valid"
-                (click)="newFormation()"
+                (click)="newVideo()"
               >
-                Add
+                Ajouter
               </button>
             </div>
           </div>

@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { FormationComponent } from './pages/formation/formation.component';
 import { AddformationComponent } from './pages/addformation/addformation.component';
+import { AddvideoComponent } from './pages/addvideo/addvideo.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +28,8 @@ const routes: Routes =[
 { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
 { path: 'formation', component: FormationComponent },
 { path: 'addformation',             component: AddformationComponent },
+{ path: 'addvideo',             component: AddvideoComponent },
+
 ];
 
 @NgModule({
