@@ -14,6 +14,7 @@ import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.comp
 import { FormationComponent } from './pages/formation/formation.component';
 import { AddformationComponent } from './pages/addformation/addformation.component';
 import { AddvideoComponent } from './pages/addvideo/addvideo.component';
+import { DetailformationComponent } from './pages/detailformation/detailformation.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,11 +24,14 @@ const routes: Routes =[
     { path: 'register',           component: RegisterComponent },
     { path: 'home',          component: LandingComponent },
     { path: 'formation',          component: FormationComponent },
+    { path: 'formation/:id',          component: DetailformationComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
 { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
 { path: 'formation', component: FormationComponent },
 { path: 'addformation',             component: AddformationComponent },
+{ path: 'addformation/:id',             component: AddformationComponent },
+
 { path: 'addvideo',             component: AddvideoComponent },
 
 ];

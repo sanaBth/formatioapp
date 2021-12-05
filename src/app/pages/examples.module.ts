@@ -16,6 +16,7 @@ import { FormationComponent } from './formation/formation.component';
 import { HeaderNotTransparentComponent } from './header-not-transparent/header-not-transparent.component';
 import { AddformationComponent } from './addformation/addformation.component';
 import { AddvideoComponent } from './addvideo/addvideo.component';
+import { DetailformationComponent } from './detailformation/detailformation.component';
 
 @NgModule({
     imports: [
@@ -37,6 +38,7 @@ import { AddvideoComponent } from './addvideo/addvideo.component';
         HeaderNotTransparentComponent,
         AddformationComponent,
         AddvideoComponent,
+        DetailformationComponent,
         
     ]
 })

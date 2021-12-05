@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormationDbService } from 'app/service/formation-db.service';
 
 @Component({
@@ -12,7 +13,7 @@ video:any
 id:string
 formation:any
   postForm : FormGroup;
-  constructor(private _formationService : FormationDbService) { }
+  constructor(private router: Router,private _formationService : FormationDbService) { }
 
   ngOnInit(): void {
     this._formationService.getFormations().subscribe((data:any) => {
@@ -51,7 +52,8 @@ newVideo(){
   console.log(formData)
    this._formationService.addVideo(formData,this.id).subscribe(
     (res)=>{console.log(res);
-      //this.router.navigate(['/home']);
+      
+      this.router.navigate(['/addvideo']);
     },
     (err)=>{console.log(err);
     //notification error

@@ -1,27 +1,42 @@
 <app-header-not-transparent></app-header-not-transparent>
-<div class="container-fluid">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let f of formation">
-      <div class="card h-100">
-        <video controls *ngFor="let v of f.listVideo">
-          <source
-            src="http://localhost:4000/uploads/{{ v }}"
-            class="card-img-top"
-            type="video/mp4"
-          />
-          Browser not supported
-        </video>
-
-        <div class="card-body">
-          <h5 class="card-title">{{ f.nom }}</h5>
-          <p class="card-text">
-            {{ f.dure }}
-          </p>
-          <p class="card-text">
-            {{ f.description }}
-          </p>
-          <p class="card-text">{{ f.prix }}€</p>
-        </div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col" *ngFor="let f of formation; let i = index">
+    <div class="card">
+      <img
+        src="http://localhost:4000/uploads/{{ f.imagef }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ f.nom }}</h5>
+        <p class="card-text">
+          {{ f.description }}
+        </p>
+        <p class="card-text">
+          {{ f.dure }}
+        </p>
+        <p class="card-text">{{ f.prix }}€</p>
+        <p class="card-text">{{ f.nomformateur }}</p>
+        <p>
+          <button
+            type="submit"
+            class="btn btn-primary btn-round"
+            (click)="detailFormation(f._id)"
+          >
+            <!-- -->
+            Détails
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning btn-round"
+            (click)="upformation(f._id)"
+          >
+            Modifier
+          </button>
+          <button type="button" class="btn btn-danger btn-round">
+            Supprimer
+          </button>
+        </p>
       </div>
     </div>
   </div>
