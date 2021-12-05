@@ -14,36 +14,38 @@ export class AddformationComponent implements OnInit {
   img:any
   id:string;
   actionPage:String = 'Ajouter formation';
-  currentformation : any;
-
+  currentformation : any ;
+ postForm : FormGroup;
+ formation:Formation
+ arrayForm:Formation = new Formation ( '','','' ,'','' ,null,null,[]) 
   videos:any[]
   constructor( private router: Router ,   private route: ActivatedRoute
     ,private formationService : FormationDbService) { }
-  postForm : FormGroup;
+ 
   ngOnInit(): void {
     this.id =  this.route.snapshot.params.id;
     console.log(this.id);
      if (this.id)
     {
       this.actionPage = 'Modifier une formation';
-      this.formationService.getOneformation(this.id).subscribe((data:any) => {
-        this.currentformation = data;
-        //this.list = data.listVideo
-      console.log(this.currentformation);
-        
-      });
-    /*    this.currentformation =this._formationService.getOneformation(this.id)
-   console.log(this.currentformation);  */
-    }
+     // this.countryService.getCountries().subscribe(countries => this.countries = countries);
+    
 
-
+  }
+  this.formationService.getOneformation(this.id).subscribe((data:any) => {
+    this.arrayForm = data;
+    this.postForm.patchValue(this.arrayForm);
+    //this.list = data.listVideo
+  console.log(this.arrayForm);
+    
+  });
     this.postForm = new FormGroup
     ({
-      nom: new FormControl(this.currentformation.nom,Validators.required),
-      dure: new FormControl(this.currentformation.dure,Validators.required),
-      nomformateur: new FormControl(this.currentformation.nomformateur,Validators.required),
-      description: new FormControl(this.currentformation.description,Validators.required),
-      prix: new FormControl(this.currentformation.prix,Validators.required),
+      nom: new FormControl(this.arrayForm.nom,Validators.required),
+      dure: new FormControl(this.arrayForm.dure,Validators.required),
+      nomformateur: new FormControl(this.arrayForm.nomformateur,Validators.required),
+      description: new FormControl(this.arrayForm.description,Validators.required),
+      prix: new FormControl(this.arrayForm.prix,Validators.required),
 
     })
   }

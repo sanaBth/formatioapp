@@ -39,7 +39,7 @@ export class FormationDbService {
       catchError(this.handleError)
     )
   }
-
+  
   //get une formation
   getOneformation(id:string)
   {
