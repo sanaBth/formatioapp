@@ -16,20 +16,30 @@ export class FormationComponent implements OnInit {
   formation : []
   detailsformation : any
   @ViewChild('videoPlayer') videoplayer: ElementRef;
-  constructor( private _formationservice :FormationDbService , private router: Router) { }
+  constructor( private formationservice :FormationDbService , private router: Router) { }
 
   ngOnInit(): void {
-    this._formationservice.getFormations().subscribe((data:any) => {
-      this.formation = data;
-      console.log(this.formation);
- 
-    });
+  this.refresh();
 
   }
   detailFormation(id:string)
   {
   
    this.router.navigate(['/formation',id]);
+  }
+  refresh()
+  {
+    return this.formationservice.getFormations().subscribe((data:any) => {
+      this.formation = data;
+      console.log(this.formation);
+ 
+    });
+  }
+  delformation(id:string)
+  {
+   // console.log(id);
+    this.formationservice.delFormation(id);
+    this.refresh();
   }
   upformation(id:string)
   {

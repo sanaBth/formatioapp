@@ -93,6 +93,7 @@
                 id="idform"
                 (change)="selectId($event)"
               >
+                <option>Liste des formations</option>
                 <option *ngFor="let v of formation" value="{{ v._id }}">
                   {{ v.nom }}
                 </option>

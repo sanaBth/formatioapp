@@ -43,7 +43,7 @@ export class FormationDbService {
   //get une formation
   getOneformation(id:string)
   {
-    return this.httpClient.get(`http://localhost:4000/formation/details/${id}`)/* .pipe(
+    return this.httpClient.get(`${this.api_url}/formation/details/${id}`)/* .pipe(
       catchError(this.handleError)
     ) */
   }
@@ -56,9 +56,21 @@ export class FormationDbService {
   }
 
 
-
+ //delete une formation
+ delFormation(id:string)
+ {
+   return this.httpClient.delete(`${this.api_url}/formation/delete/${id}`).subscribe(data => {
+    console.log(data);
+  });
+ }
   
-
+ //delete un video
+ delvideo(id:string)
+ {
+   return this.httpClient.delete(`${this.api_url}/video/delete/${id}`).subscribe(data => {
+    console.log(data);
+  });
+ }
 
 
   handleError(error: HttpErrorResponse) {

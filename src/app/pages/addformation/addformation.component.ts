@@ -30,15 +30,15 @@ export class AddformationComponent implements OnInit {
       this.actionPage = 'Modifier une formation';
      // this.countryService.getCountries().subscribe(countries => this.countries = countries);
     
-
-  }
-  this.formationService.getOneformation(this.id).subscribe((data:any) => {
+ this.formationService.getOneformation(this.id).subscribe((data:any) => {
     this.arrayForm = data;
     this.postForm.patchValue(this.arrayForm);
     //this.list = data.listVideo
   console.log(this.arrayForm);
     
   });
+  }
+ 
     this.postForm = new FormGroup
     ({
       nom: new FormControl(this.arrayForm.nom,Validators.required),
@@ -69,8 +69,8 @@ newFormation(){
   formData.append('nomformateur',this.postForm.controls.nomformateur.value)
   formData.append('prix',this.postForm.controls.prix.value)
   console.log(formData)
-  /* if(this.actionPage == 'Ecrivez un article')
-    { */
+  if(this.actionPage == 'Ajouter formation')
+    {
   this.formationService.addFormation(formData).subscribe(
     (res)=>{console.log(res);
       this.router.navigate(['/formation']);
@@ -80,10 +80,10 @@ newFormation(){
   
   }
   ); 
-/* }
+}
 else
 {
-  this._articleservice.updateItem(this.i,this.currentarticle )
-} */
+  //this.formationService.updateItem(this.i,this.currentarticle )
+}
 }
 }

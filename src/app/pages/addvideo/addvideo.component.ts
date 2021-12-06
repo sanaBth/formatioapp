@@ -13,10 +13,10 @@ video:any
 id:string
 formation:any
   postForm : FormGroup;
-  constructor(private router: Router,private _formationService : FormationDbService) { }
+  constructor(private router: Router,private formationservice : FormationDbService) { }
 
   ngOnInit(): void {
-    this._formationService.getFormations().subscribe((data:any) => {
+    this.formationservice.getFormations().subscribe((data:any) => {
       this.formation = data;
      /// let id = this.formation._id;
       console.log(this.formation);
@@ -30,7 +30,9 @@ formation:any
       description: new FormControl('',Validators.required),
     })
   }
-  selectFile(e:any){
+
+  selectFile(e:any)
+  {
   this.video = e.target.files[0]
   console.log(this.video);
 }
@@ -50,10 +52,11 @@ newVideo(){
   formData.append('dure',this.postForm.controls.dure.value)
 
   console.log(formData)
-   this._formationService.addVideo(formData,this.id).subscribe(
+  console.log(this.id)
+   this.formationservice.addVideo(formData,this.id).subscribe(
     (res)=>{console.log(res);
       
-      this.router.navigate(['/addvideo']);
+      this.router.navigate(['/formation']);
     },
     (err)=>{console.log(err);
     //notification error

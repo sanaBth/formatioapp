@@ -10,22 +10,28 @@
       <h5 class="card-title">{{ detailsformation.nom }}</h5>
       <p class="card-text">{{ detailsformation.prix }}€</p>
       <p class="card-text">{{ detailsformation.nomformateur }}</p>
-
-      <video
-        width="320"
-        height="240"
-        controls
-        *ngFor="let v of detailsformation.listVideo"
-      >
-        <source
-          src="http://localhost:4000/uploads/{{ v.lienVideo }}"
-          class="card-img-top"
-          type="video/mp4"
-        />
-        Browser not supported
-      </video>
+      <div *ngFor="let v of detailsformation.listVideo">
+        <video width="320" height="240" controls>
+          <source
+            src="http://localhost:4000/uploads/{{ v.lienVideo }}"
+            class="card-img-top"
+            type="video/mp4"
+          />
+          Browser not supported
+        </video>
+        <p>
+          <button type="button" class="btn btn-warning btn-round">
+            Modifier
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-round"
+            (click)="delvideo(v._id)"
+          >
+            Supprimer
+          </button>
+        </p>
+      </div>
     </div>
-    <button type="button" class="btn btn-warning btn-round">Modifier</button>
-    <button type="button" class="btn btn-danger btn-round">Supprimer</button>
   </div>
 </div>
