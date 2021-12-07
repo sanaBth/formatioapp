@@ -32,6 +32,7 @@ newformation:Video
   console.log(this.arrayForm);
   });
   }
+
   //liste des formations
     this.formationservice.getFormations().subscribe((data:any) => {
       this.formation = data;
@@ -44,15 +45,16 @@ newformation:Video
       name: new FormControl(this.arrayForm.name,Validators.required),
       dure: new FormControl(this.arrayForm.dure,Validators.required),
       description: new FormControl(this.arrayForm.description,Validators.required),
+      lienVideo:new FormControl(this.arrayForm.link,Validators.required),
     })
 
   }
 
   selectFile(e:any)
   {
-  this.video = e.target.files[0]
-  console.log(this.video);
-}
+    this.video = e.target.files[0]
+    console.log(this.video);
+  }
 
 selectId(e:any)
 {

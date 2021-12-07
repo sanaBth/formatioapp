@@ -41,6 +41,8 @@
                 type="file"
                 class="form-control"
                 (change)="selectFile($event)"
+              
+                formControlName="imagef"
               />
             </div>
             <div class="col-auto">
@@ -135,7 +137,7 @@
                 [disabled]="!postForm.valid"
                 (click)="newFormation()"
               >
-              {{ actionPage }}
+                {{ actionPage }}
               </button>
             </div>
           </div>

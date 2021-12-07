@@ -18,7 +18,6 @@
                 id="name"
                 placeholder="Nom..."
                 formControlName="name"
-               
               />
               <div
                 class="text-info"
@@ -38,6 +37,9 @@
 
               <input
                 class="form-control"
+                formControlName="lienVideo"
+                name="lienVideo"
+                value="lienVideo"
                 type="file"
                 id="fileselect"
                 (change)="selectFile($event)"
@@ -45,7 +47,6 @@
             </div>
             <div class="col-auto">
               <label for="myInput" class="form-label">Durée vidéo</label>
-
               <input
                 type="text"
                 placeholder="durée..."

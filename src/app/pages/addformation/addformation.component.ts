@@ -31,11 +31,11 @@ export class AddformationComponent implements OnInit {
       this.actionPage = 'Modifier une formation';
      // this.countryService.getCountries().subscribe(countries => this.countries = countries);
     
- this.formationService.getOneformation(this.id).subscribe((data:any) => {
-    this.arrayForm = data;
-    this.postForm.patchValue(this.arrayForm);
-    //this.list = data.listVideo
-  console.log(this.arrayForm);
+    this.formationService.getOneformation(this.id).subscribe((data:any) => {
+      this.arrayForm = data;
+      this.postForm.patchValue(this.arrayForm);
+      //this.list = data.listVideo
+    console.log(this.arrayForm);
     
   });
   }
@@ -47,10 +47,12 @@ export class AddformationComponent implements OnInit {
       nomformateur: new FormControl(this.arrayForm.nomformateur,Validators.required),
       description: new FormControl(this.arrayForm.description,Validators.required),
       prix: new FormControl(this.arrayForm.prix,Validators.required),
-
+    
     })
   }
-  selectFile(e:any){
+  selectFile(e:any)
+  {
+    
   this.img = e.target.files[0]
   console.log(this.img);
 }
