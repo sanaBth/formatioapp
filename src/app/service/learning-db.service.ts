@@ -7,7 +7,7 @@ import { User } from 'app/model/user';
 })
 export class LearningDbService {
 
-  api_url: string = 'http://localhost:4000';
+  api_url: string = 'http://localhost:4001';
   
   constructor(private httpClient: HttpClient,public router: Router) { }
 

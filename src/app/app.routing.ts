@@ -27,12 +27,12 @@ const routes: Routes =[
     { path: 'formation/:id',          component: DetailformationComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
-{ path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
-{ path: 'formation', component: FormationComponent },
-{ path: 'addformation',             component: AddformationComponent },
-{ path: 'addformation/:id',             component: AddformationComponent },
-
-{ path: 'addvideo',             component: AddvideoComponent },
+    { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
+    { path: 'formation', component: FormationComponent },
+    { path: 'addformation',             component: AddformationComponent },
+    { path: 'addformation/:id',             component: AddformationComponent },
+    { path: 'addvideo',             component: AddvideoComponent },
+    { path: 'addvideo/:id',             component: AddvideoComponent },
 
 ];
 

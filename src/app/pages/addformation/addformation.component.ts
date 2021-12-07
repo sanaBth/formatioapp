@@ -17,6 +17,7 @@ export class AddformationComponent implements OnInit {
   currentformation : any ;
  postForm : FormGroup;
  formation:Formation
+ newformation:Formation
  arrayForm:Formation = new Formation ( '','','' ,'','' ,null,null,[]) 
   videos:any[]
   constructor( private router: Router ,   private route: ActivatedRoute
@@ -83,7 +84,12 @@ newFormation(){
 }
 else
 {
-  //this.formationService.updateItem(this.i,this.currentarticle )
+  this.formationService.upformation(formData,this.id).subscribe((data:any) => {
+    this.newformation = data;
+    console.log(this.newformation);
+  });
+  this.router.navigate(['/formation']);
+  
 }
 }
 }

@@ -12,7 +12,7 @@ import { pipe, of, forkJoin } from 'rxjs/index';
 })
 export class FormationDbService {
 
-  api_url: string = 'http://localhost:4000';
+  api_url: string = 'http://localhost:4001';
   
   constructor(private httpClient: HttpClient,public router: Router) { }
 
@@ -55,7 +55,21 @@ export class FormationDbService {
     )
   }
 
+    //update video
+    upvideo(form:FormData,id:string)
+    {
+      return this.httpClient.put(`${this.api_url}/video/update/${id}`,form)/* .pipe(
+        catchError(this.handleError)
+      ) */
+    }
 
+  //update formation
+  upformation(form:FormData,id:string)
+  {
+    return this.httpClient.put(`${this.api_url}/formation/update/${id}`,form)/* .pipe(
+      catchError(this.handleError)
+    ) */
+  }
  //delete une formation
  delFormation(id:string)
  {

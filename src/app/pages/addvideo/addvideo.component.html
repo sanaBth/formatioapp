@@ -5,28 +5,27 @@
       <form [formGroup]="postForm" enctype="multipart/form-data">
         <div class="row mb-5 mt-3">
           <div class="col-md-12">
-            <h4 class="mb-3">Ajouter vidéo</h4>
-            <!--   <h1>{{ actionPage }}</h1> -->
+            <h4 class="mb-3">{{ actionPage }}</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="col-auto">
-              <label for="firstName" class="form-label">Nom Vidéo</label>
+              <label for="name" class="form-label">Nom Vidéo</label>
               <input
                 type="text"
                 class="form-control"
-                id="firstName"
+                id="name"
                 placeholder="Nom..."
-                formControlName="nom"
-                aria-label="Texte de la tâche"
+                formControlName="name"
+               
               />
               <div
                 class="text-info"
                 *ngIf="
-                  postForm.controls.nom &&
-                  postForm.controls.nom.invalid &&
-                  postForm.controls.nom.touched
+                  postForm.controls.name &&
+                  postForm.controls.name.invalid &&
+                  postForm.controls.name.touched
                 "
               >
                 Ce champs est obligatoire
@@ -106,7 +105,7 @@
                 [disabled]="!postForm.valid"
                 (click)="newVideo()"
               >
-                Ajouter
+                {{ actionPage }}
               </button>
             </div>
           </div>

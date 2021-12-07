@@ -14,6 +14,7 @@ import { FormationDbService } from 'app/service/formation-db.service';
 })
 export class FormationComponent implements OnInit {
   formation : []
+  newformation : []
   detailsformation : any
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   constructor( private formationservice :FormationDbService , private router: Router) { }
@@ -43,7 +44,6 @@ export class FormationComponent implements OnInit {
   }
   upformation(id:string)
   {
-  
    this.router.navigate(['/addformation',id]);
   }
 }

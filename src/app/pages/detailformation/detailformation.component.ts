@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormationDbService } from 'app/service/formation-db.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class DetailformationComponent implements OnInit {
   public list:[]
   lengthList:number
   public listlien : []
-  constructor(private route: ActivatedRoute,private formationservice :FormationDbService) { }
+  constructor(private router: Router,private route: ActivatedRoute,private formationservice :FormationDbService) { }
 
   ngOnInit(): void {
     this.i = this.route.snapshot.params.id;
@@ -40,4 +40,9 @@ export class DetailformationComponent implements OnInit {
     
   });
   }
+  upvideo(id:string)
+  {
+   this.router.navigate(['/addvideo',id]);
+  }
 }
+
