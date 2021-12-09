@@ -28,14 +28,14 @@ export class AddformationComponent implements OnInit {
     console.log(this.id);
      if (this.id)
     {
-      this.actionPage = 'Modifier une formation';
+      this.actionPage = 'Modifier formation';
      // this.countryService.getCountries().subscribe(countries => this.countries = countries);
     
     this.formationService.getOneformation(this.id).subscribe((data:any) => {
       this.arrayForm = data;
       this.postForm.patchValue(this.arrayForm);
       //this.list = data.listVideo
-    console.log(this.arrayForm);
+    console.log(this.arrayForm.imagef);
     
   });
   }
@@ -62,7 +62,8 @@ selectVideos(e:any){
 
 
 
-newFormation(){
+newFormation()
+{
  
   let formData = new FormData()
   formData.append('nom',this.postForm.controls.nom.value)

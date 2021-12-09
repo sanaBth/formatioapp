@@ -15,7 +15,9 @@ import { FormationDbService } from 'app/service/formation-db.service';
 export class FormationComponent implements OnInit {
   formation : []
   newformation : []
+  
   detailsformation : any
+  filtredInput: String="";
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   constructor( private formationservice :FormationDbService , private router: Router) { }
 
@@ -23,11 +25,7 @@ export class FormationComponent implements OnInit {
   this.refresh();
 
   }
-  detailFormation(id:string)
-  {
   
-   this.router.navigate(['/formation',id]);
-  }
   refresh()
   {
     return this.formationservice.getFormations().subscribe((data:any) => {
@@ -36,6 +34,12 @@ export class FormationComponent implements OnInit {
  
     });
   }
+  detailFormation(id:string)
+  {
+  
+   this.router.navigate(['/formation',id]);
+  }
+  
   delformation(id:string)
   {
    // console.log(id);

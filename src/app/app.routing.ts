@@ -15,9 +15,12 @@ import { FormationComponent } from './pages/formation/formation.component';
 import { AddformationComponent } from './pages/addformation/addformation.component';
 import { AddvideoComponent } from './pages/addvideo/addvideo.component';
 import { DetailformationComponent } from './pages/detailformation/detailformation.component';
+import { PagesnotfoundComponent } from './pages/pagesnotfound/pagesnotfound.component';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 const routes: Routes =[
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'formation', pathMatch: 'full' },
+
     { path: 'landing',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'login',           component: SignupComponent },
@@ -29,11 +32,11 @@ const routes: Routes =[
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'resetpassword/:id/:token', component: ResetpasswordComponent },
     { path: 'formation', component: FormationComponent },
-    { path: 'addformation',             component: AddformationComponent },
-    { path: 'addformation/:id',             component: AddformationComponent },
-    { path: 'addvideo',             component: AddvideoComponent },
-    { path: 'addvideo/:id',             component: AddvideoComponent },
-
+    { path: 'addformation',             component: AddformationComponent, canActivate:[AuthGuardGuard] },
+    { path: 'addformation/:id',             component: AddformationComponent ,canActivate:[AuthGuardGuard]},
+    { path: 'addvideo',             component: AddvideoComponent ,canActivate:[AuthGuardGuard]},
+    { path: 'addvideo/:id',             component: AddvideoComponent ,canActivate:[AuthGuardGuard]},
+    {path:'**', component:PagesnotfoundComponent},
 ];
 
 @NgModule({

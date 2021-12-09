@@ -13,12 +13,21 @@ export class LocalstorageService {
   
   setUseconnected(user :any)
   {
-    localStorage.setItem('userconnected', JSON.stringify(user));  
+    localStorage.setItem('userconnected', JSON.stringify( user.username));  
   }
   getUseconnected()
   {
     return JSON.parse(localStorage.getItem('userconnected') || 'null');  
   }
+  setUser(user :any)
+  {
+    localStorage.setItem('user', JSON.stringify(user));  
+  }
+  getUser()
+  {
+    return JSON.parse(localStorage.getItem('user') || 'null');  
+  }
+  
   
   public logout()
   {

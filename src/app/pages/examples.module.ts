@@ -17,6 +17,9 @@ import { HeaderNotTransparentComponent } from './header-not-transparent/header-n
 import { AddformationComponent } from './addformation/addformation.component';
 import { AddvideoComponent } from './addvideo/addvideo.component';
 import { DetailformationComponent } from './detailformation/detailformation.component';
+import { PipePipe } from '../pipe/pipe.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PagesnotfoundComponent } from './pagesnotfound/pagesnotfound.component';
 
 @NgModule({
     imports: [
@@ -24,7 +27,8 @@ import { DetailformationComponent } from './detailformation/detailformation.comp
         FormsModule,
         NgbModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        Ng2SearchPipeModule
     ],
     declarations: [
         LandingComponent,
@@ -39,7 +43,8 @@ import { DetailformationComponent } from './detailformation/detailformation.comp
         AddformationComponent,
         AddvideoComponent,
         DetailformationComponent,
-        
+        PipePipe,
+        PagesnotfoundComponent
     ]
 })
 export class ExamplesModule { }
