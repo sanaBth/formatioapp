@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PipePipe implements PipeTransform {
 
-  transform(value: any[], filtredInput:Object): any {
+  transform(value: any[], filtredInput:string): any {
     if (value.length === 0 || filtredInput === '')
     {
       return value;
@@ -14,7 +14,7 @@ export class PipePipe implements PipeTransform {
     const formation = []
     for( const form of value)
     {
-      if (form['nom'] === filtredInput)
+      if (form['nom'].include(filtredInput))
       {
         formation.push(form);
       }

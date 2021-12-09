@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
         (res)=>{
           console.log(res);
          
-   this._loginservice.setUseconnected(res.user);
+   this._loginservice.setUseconnected(res.user );
          this.router.navigate(['/home']);
         //this.toastr.success('Bienvenue');
         },

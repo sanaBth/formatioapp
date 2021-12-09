@@ -13,7 +13,8 @@ export class LocalstorageService {
   
   setUseconnected(user :any)
   {
-    localStorage.setItem('userconnected', JSON.stringify( user.username));  
+    localStorage.setItem('userconnected', JSON.stringify([user.username,user.email,user.role])); 
+    localStorage.setItem('userid', JSON.stringify(user._id));   
   }
   getUseconnected()
   {
@@ -21,18 +22,18 @@ export class LocalstorageService {
   }
   setUser(user :any)
   {
-    localStorage.setItem('user', JSON.stringify(user));  
+    localStorage.setItem('utilisateur', JSON.stringify(user));  
   }
   getUser()
   {
-    return JSON.parse(localStorage.getItem('user') || 'null');  
+    return JSON.parse(localStorage.getItem('utilisateur') || 'null');  
   }
   
   
   public logout()
   {
      localStorage.removeItem('userconnected')
-     
+     localStorage.removeItem('userid')
   }
   gettoken()
   {
