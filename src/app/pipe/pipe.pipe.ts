@@ -1,25 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Formation } from 'app/model/formation';
 
 @Pipe({
-  name: 'filter',
+  name: 'myfilter',
   pure: false
 })
 export class PipePipe implements PipeTransform {
-
-  transform(value: any[], filtredInput:string): any {
-    if (value.length === 0 || filtredInput === '')
-    {
-      return value;
+      transform(formations: Formation[], filterargs: string): Formation[] {
+        if (!formations || !filterargs) {
+            return formations;
+        }
+        return formations.filter(item => item.nom.toLowerCase().indexOf(filterargs.toLowerCase()) !== -1);
     }
-    const formation = []
-    for( const form of value)
-    {
-      if (form['nom'].include(filtredInput))
-      {
-        formation.push(form);
-      }
-      return formation;
-    }
-   
-}
 }

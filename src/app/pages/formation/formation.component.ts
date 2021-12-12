@@ -15,7 +15,7 @@ import { FormationDbService } from 'app/service/formation-db.service';
 export class FormationComponent implements OnInit {
   formation : []
   newformation : []
-  
+  filterargs:string
   detailsformation : any
   filtredInput: String="";
   @ViewChild('videoPlayer') videoplayer: ElementRef;
