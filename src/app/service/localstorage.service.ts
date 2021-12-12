@@ -13,20 +13,19 @@ export class LocalstorageService {
   
   setUseconnected(user :any)
   {
-    localStorage.setItem('userconnected', JSON.stringify([user.username,user.email,user.role])); 
+    localStorage.setItem('userconnected', JSON.stringify(user.username,));
+    localStorage.setItem('role', JSON.stringify(user.role));
+    localStorage.setItem('email', JSON.stringify(user.email));
     localStorage.setItem('userid', JSON.stringify(user._id));   
   }
   getUseconnected()
   {
     return JSON.parse(localStorage.getItem('userconnected') || 'null');  
   }
-  setUser(user :any)
+ 
+  getRole()
   {
-    localStorage.setItem('utilisateur', JSON.stringify(user));  
-  }
-  getUser()
-  {
-    return JSON.parse(localStorage.getItem('utilisateur') || 'null');  
+    return JSON.parse(localStorage.getItem('role') || 'null');  
   }
   
   

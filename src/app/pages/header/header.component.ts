@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   
   userconnected : User;
-  
+  role:User
 
   constructor(
       private _storageService :LocalstorageService , 
@@ -22,7 +22,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
       this.userconnected = JSON.parse(localStorage.getItem('userconnected') || 'null')
-      console.log(this.userconnected);
+      this.role = JSON.parse(localStorage.getItem('role') || 'null')
+      if(this.userconnected)
+      {
+        console.log(this.role);
+ console.log(this.userconnected);
+      }
+     
 
   }
   logout()

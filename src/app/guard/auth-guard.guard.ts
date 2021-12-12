@@ -12,9 +12,9 @@ export class AuthGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):boolean {
-      this.userconnected = JSON.parse(localStorage.getItem('userconnected') || '');
+      this.userconnected = JSON.parse(localStorage.getItem('role') || 'null');
       
-      if(this.userconnected[2] == true)
+      if(this.userconnected )
       {
       
       return true;

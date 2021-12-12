@@ -21,7 +21,11 @@ export class HeaderNotTransparentComponent implements OnInit {
 
   ngOnInit(): void {
     this.userconnected = JSON.parse(localStorage.getItem('userconnected') || 'null')
-      console.log(this.userconnected);
+    if (this.userconnected )
+    {
+       console.log(this.userconnected);
+    }
+     
   }
   logout()
   {

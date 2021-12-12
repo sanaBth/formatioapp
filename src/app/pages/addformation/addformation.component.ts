@@ -29,8 +29,6 @@ export class AddformationComponent implements OnInit {
      if (this.id)
     {
       this.actionPage = 'Modifier formation';
-     // this.countryService.getCountries().subscribe(countries => this.countries = countries);
-    
     this.formationService.getOneformation(this.id).subscribe((data:any) => {
       this.arrayForm = data;
       this.postForm.patchValue(this.arrayForm);

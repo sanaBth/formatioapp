@@ -27,16 +27,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/formation">Formation</a>
         </li>
-        <li class="nav-item" *ngIf="userconnected[2]">
+        <li class="nav-item" *ngIf="userconnected">
           <a class="nav-link" routerLink="/addformation">Ajouter Formation</a>
         </li>
-        <li class="nav-item" *ngIf="userconnected[2]">
+        <li class="nav-item" *ngIf="userconnected">
           <a class="nav-link" routerLink="/addvideo">Ajouter Video</a>
         </li>
-        <li class="nav-item" *ngIf="userconnected[0]; else boutonConnecter">
+        <li class="nav-item" *ngIf="userconnected; else boutonConnecter">
           <div ngbDropdown class="d-inline-block dropdown">
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle
-              >Bonjour {{ userconnected[0] }}</a
+              >Bonjour {{ userconnected}}</a
             >
             <div
               ngbDropdownMenu
