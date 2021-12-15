@@ -20,6 +20,8 @@ import { DetailformationComponent } from './detailformation/detailformation.comp
 import { PipePipe } from '../pipe/pipe.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PagesnotfoundComponent } from './pagesnotfound/pagesnotfound.component';
+import { PanierComponent } from './panier/panier.component';
+
 
 @NgModule({
     imports: [
@@ -28,7 +30,10 @@ import { PagesnotfoundComponent } from './pagesnotfound/pagesnotfound.component'
         NgbModule,
         ReactiveFormsModule,
         RouterModule,
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
+        
+    // ToastrModule added
+  
     ],
     declarations: [
         LandingComponent,
@@ -44,7 +49,8 @@ import { PagesnotfoundComponent } from './pagesnotfound/pagesnotfound.component'
         AddvideoComponent,
         DetailformationComponent,
         PipePipe,
-        PagesnotfoundComponent
+        PagesnotfoundComponent,
+        PanierComponent
     ]
 })
 export class ExamplesModule { }

@@ -17,6 +17,7 @@ import { AddvideoComponent } from './pages/addvideo/addvideo.component';
 import { DetailformationComponent } from './pages/detailformation/detailformation.component';
 import { PagesnotfoundComponent } from './pages/pagesnotfound/pagesnotfound.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
+import { PanierComponent } from './pages/panier/panier.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'formation', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes =[
     { path: 'addformation/:id',             component: AddformationComponent ,canActivate:[AuthGuardGuard]},
     { path: 'addvideo',             component: AddvideoComponent ,canActivate:[AuthGuardGuard]},
     { path: 'addvideo/:id',             component: AddvideoComponent ,canActivate:[AuthGuardGuard]},
+    { path: 'panier',             component: PanierComponent },
     {path:'**', component:PagesnotfoundComponent},
 ];
 

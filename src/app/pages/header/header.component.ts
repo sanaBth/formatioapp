@@ -31,10 +31,18 @@ export class HeaderComponent implements OnInit {
      
 
   }
+  onRefresh() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false }
+    const currentUrl = this.router.url + '?'
+    return this.router.navigateByUrl(currentUrl).then(() => {
+      this.router.navigated = false
+      this.router.navigate([this.router.url])
+    })
+  }
   logout()
 {
 this._storageService.logout();
-this.router.navigate(['/']);
+this.onRefresh();
 }
 
 }

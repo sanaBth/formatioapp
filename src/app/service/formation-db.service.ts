@@ -16,8 +16,6 @@ export class FormationDbService {
   
   constructor(private httpClient: HttpClient,public router: Router) { }
 
-
-
   //get liste des formations
   getFormations()
   {

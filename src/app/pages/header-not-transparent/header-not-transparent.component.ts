@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { User } from 'app/model/user';
 import { LocalstorageService } from 'app/service/localstorage.service';
 @Component({
@@ -15,7 +16,9 @@ export class HeaderNotTransparentComponent implements OnInit {
   constructor
   (
       private _storageService :LocalstorageService , 
-      private router: Router) {
+      private router: Router,
+      
+      ) {
      
   }
 
@@ -27,9 +30,20 @@ export class HeaderNotTransparentComponent implements OnInit {
     }
      
   }
+  onRefresh() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false }
+    const currentUrl = this.router.url + '?'
+    return this.router.navigateByUrl(currentUrl).then(() => {
+      this.router.navigated = false
+      this.router.navigate([this.router.url])
+    })
+  }
   logout()
   {
   this._storageService.logout();
-  this.router.navigate(['/']);
+  this.onRefresh();
+  
+
   }
+
 }

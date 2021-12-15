@@ -77,8 +77,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/sass/paper-kit.scss",
               "src/assets/css/demo.css",
-              "src/assets/css/nucleo-icons.css"
-            ],
+              "src/assets/css/toastr.css",
+              "src/assets/css/nucleo-icons.css",
+              "styles.scss"            ],
             "assets": [
               "src/assets",
               "src/favicon.ico"

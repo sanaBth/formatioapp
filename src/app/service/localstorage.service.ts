@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Panier } from 'app/model/panier';
 import { User } from 'app/model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalstorageService {
-
-
   public users : User;
   constructor() { }
-  
-  
+  public lespaniers : Panier[]
   setUseconnected(user :any)
   {
     localStorage.setItem('userconnected', JSON.stringify(user.username,));
@@ -22,26 +20,19 @@ export class LocalstorageService {
   {
     return JSON.parse(localStorage.getItem('userconnected') || 'null');  
   }
- 
-  getRole()
-  {
-    return JSON.parse(localStorage.getItem('role') || 'null');  
-  }
-  
   
   public logout()
   {
      localStorage.removeItem('userconnected')
      localStorage.removeItem('userid')
+     localStorage.removeItem('email')
+     localStorage.removeItem('role')
   }
   gettoken()
   {
     return JSON.parse(localStorage.getItem('token') || 'null')
   }
-  getuserid()
-  {
-    return JSON.parse(localStorage.getItem('iserid') || 'null')
-  }
+
   settoken(token:any)
   {
     localStorage.setItem('token', JSON.stringify(token.token)); 
@@ -50,4 +41,22 @@ export class LocalstorageService {
   {
     localStorage.setItem('userId', JSON.stringify(token.userId)); 
   }
+
+  public storeOnpanier(panier: Panier): void 
+    {
+      
+      // get array of tasks from local storage
+      this.lespaniers = JSON.parse(localStorage.getItem('Panier') || '[]');
+      // push new task to array
+      this.lespaniers.push(panier);
+      // insert updated array to local storage
+      localStorage.setItem('Panier',JSON.stringify(this.lespaniers));
+      
+    }
+    getPanier()
+    {
+      /* const posts = JSON.parse(localStorage.getItem('Posts')) || [];*/
+      return JSON.parse(localStorage.getItem('Panier') || '[]');
+
+    }
 }
