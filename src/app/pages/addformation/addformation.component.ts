@@ -18,7 +18,7 @@ export class AddformationComponent implements OnInit {
  postForm : FormGroup;
  formation:Formation
  newformation:Formation
- arrayForm:Formation = new Formation ( '','','' ,'','' ,null,null,[]) 
+ arrayForm:Formation = new Formation ( '','','','' ,'','' ,null,null,[]) 
   videos:any[]
   constructor( private router: Router ,   private route: ActivatedRoute
     ,private formationService : FormationDbService) { }

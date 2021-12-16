@@ -3,6 +3,7 @@ import { ElementRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Commande } from 'app/model/commande';
+import { Formation } from 'app/model/formation';
 import { Panier } from 'app/model/panier';
 import { User } from 'app/model/user';
 import { Video } from 'app/model/video';
@@ -27,11 +28,14 @@ export class FormationComponent implements OnInit {
   userconnected : User;
   userId:string
   commande:Commande
-  panier:Panier
-  listpanier :Panier[]
+  panier:any
+  oneformation : []
+      listpanier :Panier[]
   constructor(private formationservice :FormationDbService ,
     private storageService :LocalstorageService ,
     private cartService:  CartService, 
+    
+
     private router: Router)
    { }
 
@@ -46,25 +50,39 @@ export class FormationComponent implements OnInit {
     }
   }
 
-  addtoCart(id:[],prix:number)
+  addtoCart(oneformation : Formation,idformation:string)
    {
+    //this.storageService.storeOnpanier(oneformation);
+    //this.storageService.storeOnpanier(oneformation);
+    this.panier = this.storageService.getPanier();
+    console.log(this.panier);
+    if  (this.panier.length !=0 )
+    {
+      console.log("panier plein");
+     console.log(this.panier.find(item => item._id === idformation))
 
-     if (this.panier)
-     {
-console.log("bonjour panier");
- this.panier.idformation=id ;
+         if((this.panier.find(item => item._id === idformation)) === undefined)
+        {
+          this.storageService.storeOnpanier(oneformation)
+         // console.log("bonjour");
+        }
+        else
+        {
+
+          console.log("vous avez déga commandé cet formation");
+        }  
      }
- /*   else
-   {
-     this.panier = new Panier(this.userId,prix,id)
-
-      console.log(this.panier);
-      this.storageService.storeOnpanier(this.panier);
-
-   } */
+    else
+    {
+     console.log("panier vide");
+     this.storageService.storeOnpanier(oneformation);
+    } 
+  }
+  popToast()
+  {
+   // this.toastr.warning('veuillez remplir ce champs');
     
   }
-
   refresh()
   {
     return this.formationservice.getFormations().subscribe((data:any) => {

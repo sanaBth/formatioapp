@@ -12,6 +12,7 @@ import { ExamplesModule } from './pages/examples.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     ExamplesModule,
     AppRoutingModule,
     HttpClientModule,
-    
+ 
   
   ],
   providers: [],

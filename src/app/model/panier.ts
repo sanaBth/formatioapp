@@ -1,11 +1,9 @@
+import { Formation } from "./formation";
+
 export class Panier {
-    iduser : string;
-    idformation : [];
-    sommetotal : number;
-    constructor(iduser :string, sommetotal :number,  idformation :[])
+    idformation :Formation[];
+    constructor(idformation :[])
     {
-        this.iduser=iduser;
-        this.sommetotal=sommetotal;
         this.idformation=idformation;
     }
 }

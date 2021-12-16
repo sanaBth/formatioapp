@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Formation } from 'app/model/formation';
 import { Panier } from 'app/model/panier';
 import { User } from 'app/model/user';
 
@@ -8,7 +9,7 @@ import { User } from 'app/model/user';
 export class LocalstorageService {
   public users : User;
   constructor() { }
-  public lespaniers : Panier[]
+  public lespaniers : Formation[]
   setUseconnected(user :any)
   {
     localStorage.setItem('userconnected', JSON.stringify(user.username,));
@@ -42,13 +43,13 @@ export class LocalstorageService {
     localStorage.setItem('userId', JSON.stringify(token.userId)); 
   }
 
-  public storeOnpanier(panier: Panier): void 
+  public storeOnpanier(formation: Formation): void 
     {
       
       // get array of tasks from local storage
       this.lespaniers = JSON.parse(localStorage.getItem('Panier') || '[]');
       // push new task to array
-      this.lespaniers.push(panier);
+      this.lespaniers.push(formation);
       // insert updated array to local storage
       localStorage.setItem('Panier',JSON.stringify(this.lespaniers));
       

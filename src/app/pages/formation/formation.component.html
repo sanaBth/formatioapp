@@ -14,13 +14,13 @@
       />
     </div>
   </div>
-  <!-- <button
+  <button
     type="button"
     (click)="popToast()"
     class="btn btn-outline-success btn-round"
   >
-    ajouter au panier
-  </button> -->
+    Message
+  </button>
 </div>
 <div class="container px-4 px-lg-5">
   <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -67,7 +67,7 @@
           </button>
           <button
             type="button"
-            (click)="addtoCart(f._id,f.prix)"
+            (click)="addtoCart(f,f._id)"
             class="btn btn-outline-success btn-round"
           >
           <i  class="nc-icon nc-cart-simple"></i>  
