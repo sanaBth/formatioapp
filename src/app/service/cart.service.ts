@@ -16,6 +16,8 @@ api_url: string = 'http://localhost:4001';
 //add to cart
 addTocommande(iduser:string,commande:Commande) 
 {
+  console.log(commande);
+ 
   return this.httpClient.post(`${this.api_url}/commande/add/${iduser}`,commande).pipe(
     catchError(this.handleError)
   )

@@ -27,10 +27,23 @@
         <a class="nav-link" routerLink="/panier">Panier</a>
       </li>
       <li class="nav-item" *ngIf="role">
-        <a class="nav-link" routerLink="/addformation">Ajouter Formation</a>
+        <a class="nav-link" routerLink="/listecommande">Liste Commandes</a>
       </li>
       <li class="nav-item" *ngIf="role">
-        <a class="nav-link"  routerLink="/addvideo">Ajouter Video</a>
+        <div ngbDropdown class="d-inline-block dropdown">
+          <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle
+            >Ajouter</a
+          >
+          <div
+            ngbDropdownMenu
+            aria-labelledby="dropdownBasic1"
+            class="dropdown-primary"
+          >
+            <a class="dropdown-item" routerLink="/addvideo">Ajouter Video</a>
+            <a class="dropdown-item" routerLink="/addformation">Ajouter Formation</a>
+            
+          </div>
+        </div>
       </li>
       <li class="nav-item" *ngIf="userconnected; else boutonConnecter">
         <div ngbDropdown class="d-inline-block dropdown">

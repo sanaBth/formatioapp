@@ -11,7 +11,8 @@ import { LocalstorageService } from 'app/service/localstorage.service';
 export class HeaderNotTransparentComponent implements OnInit {
 
   userconnected : User;
-  
+  role:User
+ 
 
   constructor
   (
@@ -24,6 +25,8 @@ export class HeaderNotTransparentComponent implements OnInit {
 
   ngOnInit(): void {
     this.userconnected = JSON.parse(localStorage.getItem('userconnected') || 'null')
+    this.role = JSON.parse(localStorage.getItem('role') || 'null')
+
     if (this.userconnected )
     {
        console.log(this.userconnected);

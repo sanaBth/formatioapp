@@ -21,6 +21,7 @@ import { PipePipe } from '../pipe/pipe.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PagesnotfoundComponent } from './pagesnotfound/pagesnotfound.component';
 import { PanierComponent } from './panier/panier.component';
+import { ListeCommandeComponent } from './liste-commande/liste-commande.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { PanierComponent } from './panier/panier.component';
         DetailformationComponent,
         PipePipe,
         PagesnotfoundComponent,
-        PanierComponent
+        PanierComponent,
+        ListeCommandeComponent
     ]
 })
 export class ExamplesModule { }

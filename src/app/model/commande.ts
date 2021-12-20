@@ -1,13 +1,14 @@
 export class Commande {
     iduser : string;
-    idformation : [];
-    sommetotal : number;
-    constructor(iduser :string, sommetotal :number,  idformation :[])
+    idformation : string[];
+    sommetotal : Number;
+    constructor(iduser :string,  idformation :string[] ,sommetotal :Number)
     {
         this.iduser=iduser;
         this.sommetotal=sommetotal;
         this.idformation=idformation;
     }
+   
 }
 
 

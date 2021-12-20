@@ -21,6 +21,10 @@ export class LocalstorageService {
   {
     return JSON.parse(localStorage.getItem('userconnected') || 'null');  
   }
+  getUseId()
+  {
+    return JSON.parse(localStorage.getItem('userid') || 'null');  
+  }
   
   public logout()
   {
@@ -29,6 +33,7 @@ export class LocalstorageService {
      localStorage.removeItem('email')
      localStorage.removeItem('role')
   }
+
   gettoken()
   {
     return JSON.parse(localStorage.getItem('token') || 'null')
@@ -54,10 +59,24 @@ export class LocalstorageService {
       localStorage.setItem('Panier',JSON.stringify(this.lespaniers));
       
     }
+
+    removePanier()
+    {
+      localStorage.removeItem('Panier')
+    }
     getPanier()
     {
       /* const posts = JSON.parse(localStorage.getItem('Posts')) || [];*/
       return JSON.parse(localStorage.getItem('Panier') || '[]');
 
+    }
+
+    deleteformation(i:number)
+    {
+      
+      this.lespaniers =JSON.parse(localStorage.getItem('Panier') || '[]');
+      this.lespaniers.splice(i,1)
+      localStorage.setItem('Panier',JSON.stringify(this.lespaniers));
+    
     }
 }
