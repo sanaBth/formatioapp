@@ -10,7 +10,6 @@ import { FormationDbService } from 'app/service/formation-db.service';
 import { LocalstorageService } from 'app/service/localstorage.service';
 
 
-
 @Component({
   selector: 'app-formation',
   templateUrl: './formation.component.html',
@@ -39,26 +38,33 @@ export class FormationComponent implements OnInit {
     this.refresh();
     this.userconnected = JSON.parse(localStorage.getItem('userconnected') || 'null')
     this.userId = JSON.parse(localStorage.getItem('userid') || 'null')
-    if (this.userconnected )
-    {
-      console.log(this.userconnected);
-    }
+  
   }
-
+  onRefresh() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false }
+    const currentUrl = this.router.url + '?'
+    return this.router.navigateByUrl(currentUrl).then(() => {
+      this.router.navigated = false
+      this.router.navigate([this.router.url])
+    })
+  }
   addtoCart(oneformation : Formation,idformation:string)
    {
     this.panier = this.storageService.getPanier();
-    console.log(this.panier);
+    //console.log(this.panier);
     if  (this.panier.length !=0 )
     {
+      this.onRefresh()
       console.log("panier plein");
          if((this.panier.find(item => item._id === idformation)) === undefined)
         {
           this.storageService.storeOnpanier(oneformation)
+          this.onRefresh()
         }
         else
         {
           console.log("vous avez déga commandé cet formation");
+          this.onRefresh()
         }  
      }
     else
@@ -70,14 +76,14 @@ export class FormationComponent implements OnInit {
   popToast()
   {
    // this.toastr.warning('veuillez remplir ce champs');
-    
+   
   }
   
   refresh()
   {
     return this.formationservice.getFormations().subscribe((data:any) => {
       this.formation = data;
-      console.log(this.formation);
+     
     });
   }
   detailFormation(id:string)

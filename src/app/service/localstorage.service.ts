@@ -9,7 +9,9 @@ import { User } from 'app/model/user';
 export class LocalstorageService {
   public users : User;
   constructor() { }
+  panier = Panier
   public lespaniers : Formation[]
+  taille : number
   setUseconnected(user :any)
   {
     localStorage.setItem('userconnected', JSON.stringify(user.username,));
@@ -69,6 +71,12 @@ export class LocalstorageService {
       /* const posts = JSON.parse(localStorage.getItem('Posts')) || [];*/
       return JSON.parse(localStorage.getItem('Panier') || '[]');
 
+    }
+    lengthPanier()
+    {
+      this.panier = this.getPanier();
+      this.taille = this.getPanier().length;
+      return this.taille;
     }
 
     deleteformation(i:number)

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Panier } from 'app/model/panier';
 
 import { User } from 'app/model/user';
 import { LocalstorageService } from 'app/service/localstorage.service';
@@ -12,11 +13,11 @@ export class HeaderNotTransparentComponent implements OnInit {
 
   userconnected : User;
   role:User
- 
-
+ p:Number
+ panier:Panier
   constructor
   (
-      private _storageService :LocalstorageService , 
+      private storageService :LocalstorageService , 
       private router: Router,
       
       ) {
@@ -26,12 +27,7 @@ export class HeaderNotTransparentComponent implements OnInit {
   ngOnInit(): void {
     this.userconnected = JSON.parse(localStorage.getItem('userconnected') || 'null')
     this.role = JSON.parse(localStorage.getItem('role') || 'null')
-
-    if (this.userconnected )
-    {
-       console.log(this.userconnected);
-    }
-     
+    this.lenghtpanier();
   }
   onRefresh() {
     this.router.routeReuseStrategy.shouldReuseRoute = function () { return false }
@@ -41,9 +37,24 @@ export class HeaderNotTransparentComponent implements OnInit {
       this.router.navigate([this.router.url])
     })
   }
+  lenghtpanier()
+  {
+    this.panier=this.storageService.getPanier();
+   
+    if (this.panier)
+    {
+       this.p=this.panier.length;
+   
+    }else
+    {
+       this.p = 0
+    }
+  //  this.onRefresh();
+    
+  }
   logout()
   {
-  this._storageService.logout();
+  this.storageService.logout();
   this.onRefresh();
   
 

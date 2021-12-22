@@ -45,7 +45,7 @@ this.sommeTotal();
   sommeTotal()
   {
     this.panier = this.storageService.getPanier();
-    console.log(this.panier);
+    //console.log(this.panier);
     for(let i=0; i< this.panier.length;i++)
     {
        this.somme = this.panier[i].prix + this.somme
@@ -64,9 +64,13 @@ this.sommeTotal();
   }
   passerCommande(p:Panier, sommePanier :Number) 
   {
-    console.log(p);
-
-    if (this.storageService.getUseconnected())
+   /*  if(this.storageService.lengthPanier() == 0) 
+    {
+      //toast
+      console.log("veullez ajouter au panier d'abord!");
+    }
+    { */
+       if (this.storageService.getUseconnected())
     {
       for (let i=0; i < p.length; i++)
       {
@@ -76,8 +80,8 @@ this.sommeTotal();
        this.idformationpanier.push(this.id)
      
       }
-       console.log(this.idformationpanier);
-      console.log("true");
+     /*  // console.log(this.idformationpanier);
+      console.log("true"); */
      
       //affichage popup commande éffectué 
       this.userId = this.storageService.getUseId()
@@ -104,5 +108,7 @@ this.sommeTotal();
       console.log("false");
       this.router.navigate(['/login'])
     }
+   // }
+   
   }
 }

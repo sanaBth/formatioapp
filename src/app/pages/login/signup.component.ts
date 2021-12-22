@@ -16,10 +16,10 @@ export class SignupComponent implements OnInit {
   controls:any
     test : Date = new Date();
     
-      constructor(private _authService:  LearningDbService,
+      constructor(private authService:  LearningDbService,
         private router: Router,
        
-        private _loginservice :LocalstorageService) { 
+        private loginservice :LocalstorageService) { 
          
         }
 
@@ -35,11 +35,19 @@ export class SignupComponent implements OnInit {
     public login()
   {
    console.log(this.userForm.value);
-      this._authService.login(this.userForm.value).subscribe(
+      this.authService.login(this.userForm.value).subscribe(
         (res)=>{
           console.log(res);
-          this._loginservice.setUseconnected(res.user );
-         this.router.navigate(['/home']);
+          this.loginservice.setUseconnected(res.user );
+          console.log(this.loginservice.lengthPanier());
+          if (this.loginservice.lengthPanier() == 0)
+          {
+            this.router.navigate(['/home']);
+          }
+          else{ 
+            this.router.navigate(['/panier']);
+         }
+         
         },
         (err)=>{console.log(err.error.msg);
         //notification error
